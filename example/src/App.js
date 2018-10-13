@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StatusBar } from 'react-native';
-import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 
 import MainScreen from './MainScreen.js';
 import FlatListScreen from './FlatListScreen.js';
@@ -20,7 +20,7 @@ export default class App extends Component{
   render(){
     return (
       [
-        <StackNavigator key='navigator'/>,
+        <RootNavigator key='navigator'/>,
         <StatusBar key='statusbar' barStyle='light-content'/>
       ]
     )
@@ -28,13 +28,14 @@ export default class App extends Component{
 }
 
 
-const TopTabNavigator = createMaterialTopTabNavigator(
+const TopTabNavigator = TabNavigator(
   {
     Screen1: { screen: FlatListScreen },
     Screen2: { screen: DetailScreen },
   },
   collapsibleTabConfig({
     animationEnabled: true,
+    // tabBarPosition: 'top', //not working
     navigationOptions:{
       tabBarOptions: {
         indicatorStyle: { backgroundColor: 'white' },
@@ -64,5 +65,4 @@ const navigatorConfig = {
   }, 
 };
 
-const StackNavigator = createStackNavigator(routeConfig, navigatorConfig);
-
+const RootNavigator = StackNavigator(routeConfig, navigatorConfig);
