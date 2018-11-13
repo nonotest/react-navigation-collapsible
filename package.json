@@ -25,7 +25,7 @@
   "author": "Bright Lee <benevbright@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "react": "*",
+    "react": ">=16.6.3",
     "react-native": "*",
     "react-navigation": "*"
   },
